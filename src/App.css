@@ -3,7 +3,6 @@
   height: 100vh;
   color: #1e293b;
   background-color: #efefef;
-  text-align: center;
   padding-top: 20px;
 }
 .App h1 {
@@ -12,14 +11,4 @@
   justify-content: center;
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
-}
-.btn {
-  border: none;
-  outline: none;
-  padding: 8px 20px;
-  background-color: #7c3aed;
-  color: #fff;
-  border-radius: 5px;
-  margin-top: 20px;
-  cursor: pointer;
 }

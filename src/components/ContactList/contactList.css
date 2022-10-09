@@ -1,11 +1,31 @@
-.class-list {
+.list-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.contact-list {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.class-list .item {
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.list-header button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #6d28d9;
+  padding: 5px 15px;
+  outline: none;
+}
+.contact-list .item {
   background-color: #fff;
-  width: 20rem;
+  min-width: 20rem;
+  width: 30rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,4 +45,9 @@
   width: 20px;
   height: 20px;
   margin-right: 5px;
+}
+.item .edit-btn {
+  margin-right: 1rem;
+  border: 1px solid #6d28d9;
+  color: #6d28d9;
 }

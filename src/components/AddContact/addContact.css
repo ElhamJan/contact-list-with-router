@@ -19,3 +19,13 @@ form {
 .form-control input:focus {
   border: 2px solid #7c3aed;
 }
+.add-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #6d28d9;
+  padding: 5px 15px;
+  outline: none;
+  margin-top: 20px;
+}

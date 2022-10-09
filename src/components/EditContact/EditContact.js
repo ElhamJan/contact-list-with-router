@@ -1,8 +1,8 @@
-import { useState } from "react";
-import addContact from "../../services/addContactService";
-import "./addContact.css";
+import { useEffect, useState } from "react";
+import getOneContact from "../../services/getOneContactService";
+import updateContact from "../../services/updateContactService";
 
-const AddContact = ({ history }) => {
+const EditContact = ({ history, match }) => {
   const [contact, setContact] = useState({ name: "", email: "" });
 
   const changeHandler = (e) => {
@@ -16,13 +16,25 @@ const AddContact = ({ history }) => {
       return;
     }
     try {
-      await addContact(contact);
-      setContact({ name: "", email: "" });
+      await updateContact(match.params.id, contact);
       history.push("/");
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
+
+  useEffect(() => {
+    // const localFetch = async () => {
+    //   try {
+    //     const { data } = await getOneContact(match.params.id);
+    //     setContact({ name: data.name, email: data.email });
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
+    // localFetch();
+    getOneContact(match.params.id)
+      .then((res) => setContact({ name: res.data.name, email: res.data.email }))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <form onSubmit={submitForm}>
@@ -47,10 +59,10 @@ const AddContact = ({ history }) => {
         />
       </div>
       <button type="submit" className="add-btn">
-        Add
+        Edit
       </button>
     </form>
   );
 };
 
-export default AddContact;
+export default EditContact;
